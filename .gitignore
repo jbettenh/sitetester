@@ -23,7 +23,10 @@
 
 # Test files
 **.pytest_cache
+
+# Reports
 **assets
+**reports
 
 # File inputs
 
