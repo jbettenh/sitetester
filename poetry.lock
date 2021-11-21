@@ -94,6 +94,14 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "py-xml"
+version = "1.0"
+description = "XML bindng library for Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pyparsing"
 version = "3.0.6"
 description = "Python parsing module"
@@ -191,7 +199,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "d7dca1b1f441f8c45658cb0a29f41c5ea8357702a42b9b27103f16d6e98e1c66"
+content-hash = "503a3b09f7eba479ba823aef8647caf6139c98fe57084d37ed086a0e63dd9dc6"
 
 [metadata.files]
 atomicwrites = [
@@ -233,6 +241,9 @@ pluggy = [
 py = [
     {file = "py-1.11.0-py2.py3-none-any.whl", hash = "sha256:607c53218732647dff4acdfcd50cb62615cedf612e72d1724fb1a0cc6405b378"},
     {file = "py-1.11.0.tar.gz", hash = "sha256:51c75c4126074b472f746a24399ad32f6053d1b34b68d2fa41e558e6f4a98719"},
+]
+py-xml = [
+    {file = "py-xml-1.0.tar.gz", hash = "sha256:fd06602fadec7b3326ab828d25b15fd9c9fb53fa45206269ec965c0afabbc3fb"},
 ]
 pyparsing = [
     {file = "pyparsing-3.0.6-py3-none-any.whl", hash = "sha256:04ff808a5b90911829c55c4e26f75fa5ca8a2f5f36aa3a51f68e27033341d3e4"},
