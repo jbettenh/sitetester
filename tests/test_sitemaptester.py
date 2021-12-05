@@ -3,7 +3,8 @@ import pytest
 import requests
 
 urls = [
-    ('https://www.apple.com/sitemap/', 200)
+    ('https://www.apple.com/sitemap/', 200),
+    ('https://www.raspberrypi.org/', 200)
 ]
 
 
@@ -20,7 +21,9 @@ def test_page_exists(url, expected_code):
 
 
 def test_response_time():
-    pass
+    response = requests.get('https://www.raspberrypi.org/')
+
+    assert response.elapsed.total_seconds() < 1.00
 
 
 def test_number_of_pages():
