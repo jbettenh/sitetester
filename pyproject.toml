@@ -8,6 +8,7 @@ authors = ["Joseph Bettenhausen <jbettenh@users.noreply.github.com>"]
 python = "^3.9"
 requests = "^2.26.0"
 pytest-html = "^3.1.1"
+selenium = "^4.1.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

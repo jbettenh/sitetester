@@ -1,12 +1,13 @@
 from sitemaptester import __version__
 import pytest
 import requests
+from selenium import webdriver
+
 
 urls = [
     ('https://www.apple.com/sitemap/', 200),
     ('https://www.raspberrypi.org/', 200)
 ]
-
 
 def test_version():
     assert __version__ == '0.1.0'
@@ -31,7 +32,14 @@ def test_number_of_pages():
 
 
 def test_html_headers():
-    pass
+    browser = webdriver.Firefox()
+    browser.get('https://www.raspberrypi.org/')
+
+    title = 'Teach, Learn, and Make with Raspberry Pi'
+    assert title == browser.title
+
+    sleep(2)
+    browser.close()
 
 
 def test_html_elements():

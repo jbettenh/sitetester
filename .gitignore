@@ -16,6 +16,8 @@
 # Environments
 /venv/*
 /.idea/*
+geckodriver.exe
+geckodriver.log
 
 # Config files
 
