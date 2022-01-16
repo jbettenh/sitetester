@@ -1,9 +1,12 @@
 from datetime import datetime
 from pathlib import Path
-
 import json
+
 import pytest
-import selenium.webdriver
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 @pytest.fixture
@@ -21,21 +24,21 @@ def config(scope='session'):
 @pytest.fixture
 def browser(config):
     if config['browser'] == 'Firefox':
-        b = selenium.webdriver.Firefox()
+        brw = webdriver.Firefox()
     elif config['browser'] == 'Chrome':
-        b = selenium.webdriver.Chrome()
+        brw = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     elif config['browser'] == 'Headless Chrome':
-        opts = selenium.webdriver.ChromeOptions()
+        opts = Options()
         opts.add_argument('headless')
-        b = selenium.webdriver.Chrome(options=opts)
+        brw = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=opts)
     else:
         raise Exception(f'Browser "{config["browser"]}" is not supported')
     
-    b.implicitly_wait(config['implicit_wait'])
+    brw.implicitly_wait(config['implicit_wait'])
 
-    yield b
+    yield brw
 
-    b.quit()
+    brw.quit()
 
 
 @pytest.hookimpl(tryfirst=True)

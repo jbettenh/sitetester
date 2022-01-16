@@ -1,7 +1,7 @@
-from sitemaptester import __version__
 import pytest
 import requests
 
+from sitemaptester import __version__
 from pages.homepage import Footer
 
 
