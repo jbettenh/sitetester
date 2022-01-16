@@ -48,7 +48,7 @@ def test_html_elements(browser):
     footer_component = Footer(browser)
     footer_component.load()
 
-    assert footer_link == footer_component.find_element("For educators").text
+    assert footer_link == footer_component.search_for_link()
 
 
 def test_json_response():

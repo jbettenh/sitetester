@@ -1,5 +1,10 @@
+from selenium.webdriver.common.by import By
+
+
 class Footer:
     URL = 'https://www.raspberrypi.org/'
+
+    SEARCH_INPUT = (By.ID, 'search_link')
 
     def __init__(self, browser):
         self.browser = browser
@@ -11,4 +16,5 @@ class Footer:
         return self.browser.title
 
     def search_for_link(self):
-        pass
+        search_input = self.browser.find_element("For educators").text
+        return search_input
