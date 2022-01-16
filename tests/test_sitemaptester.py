@@ -1,6 +1,9 @@
-from sitemaptester import __version__
 import pytest
 import requests
+
+from sitemaptester import __version__
+from pages.homepage import Footer
+
 
 urls = [
     ('https://www.apple.com/sitemap/', 200),
@@ -30,12 +33,22 @@ def test_number_of_pages():
     pass
 
 
-def test_html_headers():
-    pass
+def test_html_headers(browser):
+    title = 'Teach, Learn, and Make with Raspberry Pi'
+
+    footer_component = Footer(browser)
+    footer_component.load()
+
+    assert title == footer_component.title()
 
 
-def test_html_elements():
-    pass
+def test_html_elements(browser):
+    footer_link = "For educators"
+
+    footer_component = Footer(browser)
+    footer_component.load()
+
+    assert footer_link == footer_component.search_for_link()
 
 
 def test_json_response():
