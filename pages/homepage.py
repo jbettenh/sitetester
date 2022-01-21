@@ -1,3 +1,5 @@
+from bs4 import BeautifulSoup
+
 from selenium.webdriver.common.by import By
 
 
@@ -18,3 +20,5 @@ class Footer:
     def search_for_link(self):
         search_input = self.browser.find_element("For educators").text
         return search_input
+
+

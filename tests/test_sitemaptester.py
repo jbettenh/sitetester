@@ -38,18 +38,19 @@ def test_html_headers(browser):
 
     footer_component = Footer(browser)
     footer_component.load()
+    footer_component.get_links()
 
     assert title == footer_component.title()
 
 
 def test_html_elements(browser):
-    footer_link = "For educators"
-
-    footer_component = Footer(browser)
-    footer_component.load()
-
-    assert footer_link == footer_component.search_for_link()
-
+    # footer_link = "For educators"
+    #
+    # footer_component = Footer(browser)
+    # footer_component.load()
+    #
+    # assert footer_link == footer_component.search_for_link()
+    pass
 
 def test_json_response():
     pass

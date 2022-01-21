@@ -7,12 +7,13 @@ authors = ["Joseph Bettenhausen <jbettenh@users.noreply.github.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 requests = "^2.26.0"
+pytest = "^5.2"
 pytest-html = "^3.1.1"
 selenium = "^4.1.0"
 webdriver-manager = "^3.5.2"
+beautifulsoup4 = "^4.10.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
