@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 
 
-class Footer:
+class PageBody:
     URL = 'https://www.raspberrypi.org/'
 
     SEARCH_INPUT = (By.ID, 'search_link')

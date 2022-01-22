@@ -2,12 +2,37 @@ import pytest
 import requests
 
 from sitemaptester import __version__
-from pages.homepage import Footer
+from pages.homepage import PageBody
 
 
 urls = [
-    ('https://www.apple.com/sitemap/', 200),
-    ('https://www.raspberrypi.org/', 200)
+    ('https://www.raspberrypi.org/', 200),
+    ('https://www.raspberrypi.org/', 200),
+    ('https://www.raspberrypi.org/teach', 200),
+    ('https://teachcomputing.org/', 200),
+    ('https://isaaccomputerscience.org/', 200),
+    ('https://isaaccomputerscience.org/', 200),
+    ('https://www.raspberrypi.org/research', 200),
+    ('https://helloworld.raspberrypi.org/', 200),
+    ('https://www.raspberrypi.org/learn', 200),
+    ('https://coderdojo.com/', 200),
+    ('https://codeclub.org/', 200),
+    ('https://codeclubworld.org/', 200),
+    ('https://projects.raspberrypi.org', 200),
+    ('https://astro-pi.org/', 200),
+    ('https://online.coolestprojects.org/', 200),
+    ('https://www.raspberrypi.org/safeguarding', 200),
+    ('https://www.raspberrypi.org/accessibility', 200),
+    ('https://www.raspberrypi.org/privacy', 200),
+    ('https://www.raspberrypi.org/cookies', 200),
+    ('https://www.raspberrypi.org/about', 200),
+    ('https://www.raspberrypi.org/donate', 200),
+    ('https://www.raspberrypi.org/about/meet-the-team', 200),
+    ('https://raspberrypifoundation.workable.com', 200),
+    ('https://www.raspberrypi.org/about/governance', 200),
+    ('https://www.raspberrypi.org/contact', 200),
+    ('https://www.raspberrypi.org/trademark-rules', 200),
+    ('https://www.raspberrypi.com', 200),
 ]
 
 
@@ -36,11 +61,10 @@ def test_number_of_pages():
 def test_html_headers(browser):
     title = 'Teach, Learn, and Make with Raspberry Pi'
 
-    footer_component = Footer(browser)
-    footer_component.load()
-    footer_component.get_links()
+    page = PageBody(browser)
+    page.load()
 
-    assert title == footer_component.title()
+    assert title == page.title()
 
 
 def test_html_elements(browser):
