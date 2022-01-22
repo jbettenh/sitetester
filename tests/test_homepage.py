@@ -7,7 +7,6 @@ from pages.homepage import PageBody
 
 urls = [
     ('https://www.raspberrypi.org/', 200),
-    ('https://www.raspberrypi.org/', 200),
     ('https://www.raspberrypi.org/teach', 200),
     ('https://teachcomputing.org/', 200),
     ('https://isaaccomputerscience.org/', 200),
@@ -60,21 +59,19 @@ def test_number_of_pages():
 
 def test_html_headers(browser):
     title = 'Teach, Learn, and Make with Raspberry Pi'
-
+    phrase = 'https://teachcomputing.org/'
     page = PageBody(browser)
     page.load()
 
+    titles = page.get_links('c-footer__nav-link')
+    print(titles)
+    assert len(titles) > 0
     assert title == page.title()
 
 
 def test_html_elements(browser):
-    # footer_link = "For educators"
-    #
-    # footer_component = Footer(browser)
-    # footer_component.load()
-    #
-    # assert footer_link == footer_component.search_for_link()
     pass
+
 
 def test_json_response():
     pass
