@@ -68,13 +68,35 @@ def test_number_of_pages():
 
 
 def test_footer_links(browser):
-    phrase = 'https://www.raspberrypi.org/about'
+    expected_links = {'For educators': 'https://www.raspberrypi.org/teach',
+                      'Teach Computing': 'https://teachcomputing.org/',
+                      'Isaac Computer Science': 'https://isaaccomputerscience.org/',
+                      'Research': 'https://www.raspberrypi.org/research',
+                      'Hello World magazine': 'https://helloworld.raspberrypi.org/',
+                      'For learners': 'https://www.raspberrypi.org/learn',
+                      'CoderDojo': 'https://coderdojo.com/', 'Code Club': 'https://codeclub.org/',
+                      'Code Club World': 'https://codeclubworld.org/',
+                      'Explore our projects': 'https://projects.raspberrypi.org',
+                      'Astro Pi': 'https://astro-pi.org/', 'Coolest Projects': 'https://online.coolestprojects.org/',
+                      'Safeguarding': 'https://www.raspberrypi.org/safeguarding',
+                      'Accessibility': 'https://www.raspberrypi.org/accessibility',
+                      'Privacy': 'https://www.raspberrypi.org/privacy',
+                      'Cookies': 'https://www.raspberrypi.org/cookies',
+                      'About us': 'https://www.raspberrypi.org/about',
+                      'Donate': 'https://www.raspberrypi.org/donate',
+                      'Team': 'https://www.raspberrypi.org/about/meet-the-team',
+                      'Careers': 'https://raspberrypifoundation.workable.com',
+                      'Governance': 'https://www.raspberrypi.org/about/governance',
+                      'Contact us': 'https://www.raspberrypi.org/contact',
+                      'Trademark & brand': 'https://www.raspberrypi.org/trademark-rules',
+                      'Raspberry Pi computers': 'https://www.raspberrypi.com'}
+
     page = PageBody(browser)
 
     page.load()
-    links = page.get_links('c-footer__nav-link')
+    actual_links = page.get_links('c-footer__nav-link')
 
-    assert len(links) > 0
-    assert phrase in links.values()
+    assert len(actual_links) > 0
+    assert actual_links == expected_links
 
 
