@@ -34,6 +34,35 @@ urls = [
     ('https://www.raspberrypi.com', 200, 1),
 ]
 
+footer_links = [
+    ('https://www.raspberrypi.org/'),
+    ('https://www.raspberrypi.org/teach'),
+    ('https://teachcomputing.org/'),
+    ('https://isaaccomputerscience.org/'),
+    ('https://isaaccomputerscience.org/'),
+    ('https://www.raspberrypi.org/research'),
+    ('https://helloworld.raspberrypi.org/'),
+    ('https://www.raspberrypi.org/learn'),
+    ('https://coderdojo.com/'),
+    ('https://codeclub.org/'),
+    ('https://codeclubworld.org/'),
+    ('https://projects.raspberrypi.org'),
+    ('https://astro-pi.org/'),
+    ('https://online.coolestprojects.org/'),
+    ('https://www.raspberrypi.org/safeguarding'),
+    ('https://www.raspberrypi.org/accessibility'),
+    ('https://www.raspberrypi.org/privacy'),
+    ('https://www.raspberrypi.org/cookies'),
+    ('https://www.raspberrypi.org/about'),
+    ('https://www.raspberrypi.org/donate'),
+    ('https://www.raspberrypi.org/about/meet-the-team'),
+    ('https://raspberrypifoundation.workable.com'),
+    ('https://www.raspberrypi.org/about/governance'),
+    ('https://www.raspberrypi.org/contact'),
+    ('https://www.raspberrypi.org/trademark-rules'),
+    ('https://www.raspberrypi.com'),
+]
+
 
 def test_version():
     assert __version__ == '0.1.0'
@@ -54,10 +83,6 @@ def test_response_time(url, expected_code, elapsed):
     assert response.elapsed.total_seconds() < elapsed
 
 
-def test_number_of_pages():
-    pass
-
-
 def test_html_headers(browser):
     title = 'Teach, Learn, and Make with Raspberry Pi'
 
@@ -67,14 +92,19 @@ def test_html_headers(browser):
     assert title == page.title()
 
 
-def test_html_elements(browser):
-    phrase = 'https://teachcomputing.org/'
+def test_number_of_pages():
+    assert len(footer_links) == 26
+
+
+def test_footer_links(browser):
+    phrase = 'https://www.raspberrypi.org/about'
     page = PageBody(browser)
 
     page.load()
     links = page.get_links('c-footer__nav-link')
 
     assert len(links) > 0
+    assert phrase in links.values()
 
 
 def test_json_response():
