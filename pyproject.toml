@@ -1,8 +1,9 @@
 [tool.poetry]
-name = "sitemaptester"
+name = "sitetester"
 version = "0.1.0"
-description = ""
+description = "A tool to check a website using pytest."
 authors = ["Joseph Bettenhausen <jbettenh@users.noreply.github.com>"]
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.9"

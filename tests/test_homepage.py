@@ -1,7 +1,7 @@
 import pytest
 import requests
 
-from sitemaptester import __version__
+from sitetester import __version__
 from pages.homepage import PageBody
 
 
