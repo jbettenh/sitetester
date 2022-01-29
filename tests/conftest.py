@@ -9,9 +9,9 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-@pytest.fixturetest
+@pytest.fixture
 def config(scope='session'):
-    with open('config.json') as config_file:
+    with open('inputs.json') as config_file:
         config = json.load(config_file)
     
     assert config['browser'] in ['Firefox', 'Chrome', 'Headless Chrome']
