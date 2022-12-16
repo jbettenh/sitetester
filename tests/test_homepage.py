@@ -55,7 +55,7 @@ def test_response_time(url, expected_code, elapsed):
 
 
 def test_html_headers(browser):
-    title = 'Teach, Learn, and Make with Raspberry Pi'
+    title = 'Teach, learn, and make with the Raspberry Pi Foundation'
 
     page = PageBody(browser)
     page.load()
